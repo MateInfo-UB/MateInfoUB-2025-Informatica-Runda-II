@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <functional>
 #include <random>
+#include <unordered_map>
 #include <assert.h>
 
 using namespace std;

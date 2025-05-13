@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 
-const int COEF_MAX = 1'000'000'000;
+const int COEF_MAX = 1000000000;
 
 int main()
 {
