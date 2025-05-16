@@ -22,7 +22,7 @@ struct PermHash
 
     PermHash(int N) : h(N), expected_sum(0)
     {
-        mt19937 rnd(42);
+        mt19937_64 rnd(42);
         for (int i = 0; i < N; i++)
         {
             h[i] = rnd();

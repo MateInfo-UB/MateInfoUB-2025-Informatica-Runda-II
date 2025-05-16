@@ -17,8 +17,6 @@ int NByTest(int test)
 
 int MByTest(int test)
 {
-    if (test == 2 || test == 3)
-        return 3;
     if (test == 1)
         return 10;
 
@@ -45,13 +43,15 @@ enum Strategy
 
 Strategy StrategyByTest(int test)
 {
-    if (test == 5 || test == 6)
-        return Chain;
 
-    if (test == 2)
+    if (test == 2 || test == 3)
         return ThreeLevels;
-    if (test == 3)
+
+    if (test == 4 || test == 5)
         return TwoLevels;
+
+    if (test == 6 || test == 7)
+        return Chain;
 
     if (test & 1)
         return Dense;
@@ -72,11 +72,7 @@ int main(int argc, char *argv[])
     uniform_real_distribution<double> dist_01(0, 1);
     vector<int> perm_nodes(N);
     iota(perm_nodes.begin(), perm_nodes.end(), 1);
-    // shuffle(perm_nodes.begin(), perm_nodes.end(), rnd);
-
-    vector<int> perm_weights(M);
-    iota(perm_weights.begin(), perm_weights.end(), 1);
-    // shuffle(perm_weights.begin(), perm_weights.end(), rnd);
+    shuffle(perm_nodes.begin(), perm_nodes.end(), rnd);
 
     bool weights_are_set = false;
     vector<vector<pair<int, int>>> edges(N);
@@ -159,6 +155,9 @@ int main(int argc, char *argv[])
 
             weight = (w_cnt + 1) % M;
 
+            if (dist_01(rnd) < probability_of_mutation)
+                weight = rnd() % M;
+
             weights[{node, vec}] = weight;
             weights[{vec, node}] = weight;
 
@@ -168,6 +167,10 @@ int main(int argc, char *argv[])
 
     if (!weights_are_set)
         Dfs(0, -1, 0);
+
+    vector<int> perm_weights(M);
+    iota(perm_weights.begin(), perm_weights.end(), 1);
+    shuffle(perm_weights.begin(), perm_weights.end(), rnd);
 
     cout << N << ' ' << M << '\n';
     for (int i = 0; i < N; i++)
