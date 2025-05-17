@@ -19,10 +19,6 @@ int main()
     int N, M;
     cin >> N >> M;
 
-    // Assume that M <= 3.
-    assert(M >= 1);
-    assert(M <= 3);
-
     vector<tuple<int, int, int>> edges;
     vector<vector<int>> frq(N, vector<int>(M));
 
@@ -40,20 +36,12 @@ int main()
     }
     long long answer = 0;
 
-    if (M == 2)
-    {
-        for (int i = 0; i < N; i++)
-            answer += 1LL * frq[i][0] * frq[i][1];
-    }
-    else
-    {
-        // Assume that M = 3.
-        for (auto [a, b, c] : edges)
-            for (int i = 0; i < 3; i++)
-                for (int j = 0; j < 3; j++)
-                    if (i != j && i != c && j != c)
-                        answer += 1LL * frq[a][i] * frq[b][j];
-    }
+    // Assume that M = 3.
+    for (auto [a, b, c] : edges)
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
+                if (i != j && i != c && j != c)
+                    answer += 1LL * frq[a][i] * frq[b][j];
 
     cout << answer << '\n';
 

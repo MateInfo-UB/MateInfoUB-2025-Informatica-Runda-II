@@ -45,10 +45,10 @@ Strategy StrategyByTest(int test)
 {
 
     if (test == 2 || test == 3)
-        return ThreeLevels;
+        return TwoLevels;
 
     if (test == 4 || test == 5)
-        return TwoLevels;
+        return ThreeLevels;
 
     if (test == 6 || test == 7)
         return Chain;

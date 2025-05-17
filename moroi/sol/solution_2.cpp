@@ -51,30 +51,30 @@ int main()
         return ans;
     };
 
-    auto ComputeBestAnswer = [&](auto &&self, int idx, int x, int y, int dx, int dy) -> int
+    function<int(int, int, int, int, int)> ComputeBestAnswer = [&](int idx, int x, int y, int dx, int dy) -> int
     {
         if (idx == s.size())
             return abs(x) + abs(y);
 
         char c = s[idx];
         if (c == 'i')
-            return self(self, idx + 1, x + dx, y + dy, dx, dy);
+            return ComputeBestAnswer(idx + 1, x + dx, y + dy, dx, dy);
         else if (c == 's')
-            return self(self, idx + 1, x, y, dy, -dx);
+            return ComputeBestAnswer(idx + 1, x, y, dy, -dx);
         else if (c == 'd')
-            return self(self, idx + 1, x, y, -dy, dx);
+            return ComputeBestAnswer(idx + 1, x, y, -dy, dx);
         else if (c == 'r')
         {
-            int ans = self(self, idx + 1, x, y, dx, dy);
-            ans = max(ans, self(self, idx + 1, x, y, dy, -dx));
-            ans = max(ans, self(self, idx + 1, x, y, -dy, dx));
-            ans = max(ans, self(self, idx + 1, x, y, -dx, -dy));
+            int ans = ComputeBestAnswer(idx + 1, x, y, dx, dy);
+            ans = max(ans, ComputeBestAnswer(idx + 1, x, y, dy, -dx));
+            ans = max(ans, ComputeBestAnswer(idx + 1, x, y, -dy, dx));
+            ans = max(ans, ComputeBestAnswer(idx + 1, x, y, -dx, -dy));
             return ans;
         }
         assert(false);
     };
 
-    int ans = ComputeBestAnswer(ComputeBestAnswer, 0, 0, 0, 1, 0);
+    int ans = ComputeBestAnswer(0, 0, 0, 1, 0);
 
     cout << ans << '\n';
     return 0;

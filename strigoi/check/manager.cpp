@@ -25,9 +25,9 @@ struct InvalidProgram : public runtime_error
     InvalidProgram(const string &message) : runtime_error(message) {}
 };
 
-std::regex INSTR_TWO_REGISTERS(R"(\$(\w+)\s*=\s*\$(\w+)\s*([\+\-\*])\s*\$(\w+))"); // $A = $B [+-*] $C
-std::regex INSTR_ONE_REGISTER(R"(\$(\w+)\s*=\s*\$(\w+)\s*([\+\-\*])\s*(\d+))");    // $A = $B [+-*] [numar]
-std::regex INSTR_NO_REGISTER(R"(\$(\w+)\s*=\s*(\d+))");                            // $A = [numar]
+std::regex INSTR_TWO_REGISTERS(R"(\s*\$(\w+)\s*=\s*\$(\w+)\s*([\+\-\*])\s*\$(\w+)\s*)"); // $A = $B [+-*] $C
+std::regex INSTR_ONE_REGISTER(R"(\s*\$(\w+)\s*=\s*\$(\w+)\s*([\+\-\*])\s*(\d+)\s*)");    // $A = $B [+-*] [numar]
+std::regex INSTR_NO_REGISTER(R"(\s*\$(\w+)\s*=\s*(\d+)\s*)");                            // $A = [numar]
 
 class Checker
 {

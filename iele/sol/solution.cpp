@@ -134,12 +134,19 @@ int main()
     int N, M;
     cin >> N >> M;
 
+    assert(N >= 1 && N <= 100000);
+    assert(M >= 1 && M < N);
+
     Centroid centroid(N, M);
 
     for (int i = 1; i < N; i++)
     {
         int a, b, c;
         cin >> a >> b >> c;
+
+        assert(1 <= min(a, b) && max(a, b) <= N);
+        assert(1 <= c && c <= M);
+
         centroid.edges[a - 1].emplace_back(b - 1, c - 1);
         centroid.edges[b - 1].emplace_back(a - 1, c - 1);
     }

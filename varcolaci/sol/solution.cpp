@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include <assert.h>
 using namespace std;
 
 const string WIN = "Radu", LOSE = "Mircea", DRAW = "egalitate";
@@ -13,12 +14,16 @@ void Test()
     int N;
     cin >> N;
 
+    assert(N <= 100000);
+
     int nr_pare = 0, nr_impare = 0;
 
     while (N--)
     {
         int x;
         cin >> x;
+
+        assert(x > 0 && x <= 1000000000);
 
         if (x % 2 == 0)
             nr_pare++;
@@ -71,6 +76,8 @@ int main()
 
     int T;
     cin >> T;
+
+    assert(T <= 10);
 
     while (T--)
         Test();
