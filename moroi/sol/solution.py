@@ -17,7 +17,7 @@ for op in operations:
         elif s == "s":
             dir = (dir + 1) % 4
         elif s == "d":
-            dir = (dir - 1) % 4
+            dir = (dir + 3) % 4
         else:
             assert False, f"Unknown command: {s}"
 

@@ -1,0 +1,104 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{task}
+
+\newcommand{\contestName}{MateInfoUB}
+\newcommand{\contestDates}{17 Mai 2025}
+\newcommand{\contestPlace}{Facultatea de Matematic\v a-Informatic\v a}
+\newcommand{\contestRound}{Runda Final\v a}
+%\newcommand{\contestRound}{Rund\v a de Test}
+\newcommand{\statementLanguage}{Rom\^ an\v a (Oficial)}
+\newcommand{\taskShortName}{A-Tenție}
+
+
+\definecolor{Brown}{cmyk}{0,0.81,1,0.60}
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\definecolor{CadetBlue}{cmyk}{0.62,0.57,0.23,0}
+\definecolor{lightlightgray}{gray}{0.9}
+
+\lstset{
+% language=C++,                             % Code langugage
+basicstyle=\ttfamily,                   % Code font, Examples: \footnotesize, \ttfamily
+keywordstyle=\bfseries,        % Keywords font ('*' = uppercase)
+commentstyle=\color{gray},              % Comments font
+columns=flexible,
+% numbers=left,                           % Line nums position
+% numberstyle=\tiny,                      % Line-numbers fonts
+% stepnumber=1,                           % Step between two line-numbers
+% numbersep=5pt,                          % How far are line-numbers from code
+% backgroundcolor=\color{lightlightgray}, % Choose background color
+% frame=none,                             % A frame around the code
+% tabsize=2,                              % Default tab size
+% captionpos=b,                           % Caption-position = bottom
+% breaklines=true,                        % Automatic line breaking?
+% breakatwhitespace=false,                % Automatic breaks only at whitespace?
+% showspaces=false,                       % Dont make spaces visible
+% showtabs=true,                         % Dont make tabls visible
+}
+
+
+\setlength{\parskip}{0pt}
+
+\begin{document}
+\input{header.tex}
+
+\section*{A-Tenție}
+
+\textbf{Notă:} Această problemă este o problemă interactivă. Vă recomandăm să încercați să o rezolvați pentru a vă obișnui cu formatul.
+
+\vspace{1em}
+
+Comisia este singuratică, și vrea să știe că cineva o ascultă! vă roagă să repetați dupa ea $5$ cuvinte.
+
+
+\subsection*{Interacțiune}
+
+Citiți de $5$ ori câte un cuvânt, și afișati-l pe câte o linie.
+
+\textbf{Atenție:} Nu veți putea citi un cuvânt până nu l-ați afișat pe cel precedent!
+
+\subsection*{Constrângeri}
+
+Cuvintele sunt formate doar din litere ale alfabetului latin și punctuație, și au o lungime de maxim $100$ de caractere.
+
+\subsection*{Exemplu}
+
+\begin{tabular}{|@{}p{0.5\textwidth}@{}|@{}p{0.5\textwidth}@{}|}
+\hline
+\multicolumn{1}{|c|}{\bfseries Input Standard (\textit{cin})} &
+\multicolumn{1}{c|}{\bfseries Output Standard (\textit{cout})} \\
+\hline
+\begin{textQuoteCell}
+Buna!
+
+Ma-auzi!
+
+Mult-succes-la-proba!
+
+Inca-un-cuvant.
+
+Bravo!
+\end{textQuoteCell} &
+\begin{textQuoteCell}
+
+Buna!
+
+Ma-auzi!
+
+Mult-succes-la-proba!
+
+Inca-un-cuvant.
+
+Bravo!
+\end{textQuoteCell} \\    
+\hline
+\end{tabular}
+\vspace{1em}
+
+% Nu uitați sa flushuiți output-ul după ce afișați fiecare linie, pentru ca evaluatorul (cu \texttt{cout.flush()} (C++) sau \texttt{fflush(stdout)} (C).
+
+Nu uitați să folosiți \texttt{cout.flush()} (în C++) sau
+\texttt{fflush(stdout)} (în C) după fiecare afișare.
+
+Motivul este că, în problemele interactive, programul comunică în timp real cu evaluatorul. Fără flush, textul afișat poate rămâne în buffer și nu va fi trimis imediat evaluatorului, ceea ce poate duce la blocări sau comportament nedorit. Astfel, flush asigură că evaluatorul primește output-ul în timp util, permițând comunicarea corectă și sincronizată.
+
+\end{document}

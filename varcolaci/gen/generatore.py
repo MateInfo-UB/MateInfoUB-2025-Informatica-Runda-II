@@ -35,7 +35,7 @@ MAX_VAL_PER_TEST = {
 print(SAMPLES_PER_TEST)
 
 for i in range(1, SAMPLES_PER_TEST + 1):
-    N = N_PER_TEST[TEST_NR]
+    N = random.randint(1, N_PER_TEST[TEST_NR])
     MAX_VAL = MAX_VAL_PER_TEST[TEST_NR]
 
     numbers = [random.randint(1, MAX_VAL) for _ in range(N)]
